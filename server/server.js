@@ -18,7 +18,11 @@ mongoose
   .catch((err) => console.log("DB Connection Error: ", err));
 
 // middlewares
-app.use(cors());
+app.use(cors({
+  origin: "https://book-haven-jki4.vercel.app", // frontend URL
+  methods: ["GET","POST","PUT","DELETE"],
+  credentials: true
+  }));
 app.use(morgan("dev"));
 app.use(express.json());
 
